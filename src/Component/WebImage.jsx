@@ -12,7 +12,7 @@ const projects = [
     id: 2,
     title: "Sneaker Store",
     image: "/path-to-your-image2.jpg",
-    link: "https://yourwebsite2.com",
+    link: "https://sneakers-store2.vercel.app/",
   },
   {
     id: 3,
@@ -43,9 +43,12 @@ const WebImage = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((project) => (
-          <motion.div
+          <motion.a
             key={project.id}
-            className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800 group"
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800 group block"
             whileHover={{ scale: 1.07, rotateY: 5 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
@@ -61,20 +64,17 @@ const WebImage = () => {
               <h3 className="text-2xl font-bold text-white tracking-wider">
                 {project.title}
               </h3>
-              <motion.a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.div
                 className="mt-4 px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
               >
                 View Website 🚀
-              </motion.a>
+              </motion.div>
             </div>
 
             {/* Glowing Border Effect */}
             <div className="absolute inset-0 border-4 border-transparent rounded-xl group-hover:border-blue-500 transition-all duration-500 shadow-[0_0_15px_5px_rgba(59,130,246,0.8)] opacity-0 group-hover:opacity-100"></div>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
     </div>
@@ -82,3 +82,5 @@ const WebImage = () => {
 };
 
 export default WebImage;
+
+
