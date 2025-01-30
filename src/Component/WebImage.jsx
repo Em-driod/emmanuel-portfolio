@@ -73,7 +73,7 @@ const WebImage = () => {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-screen bg-gradient-to-r from-[#1a1a2e] via-[#16213e] to-[#0f3460] px-4 sm:px-6 lg:px-12 py-12"
+      className="relative min-h-screen bg-gradient-to-r from-[#3b4f7e] via-[#2c3a58] to-[#1b2d45] px-4 sm:px-6 lg:px-12 py-12"
     >
       <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-white mb-12 tracking-wide">
         🚀 Featured Projects
@@ -121,6 +121,7 @@ const WebImage = () => {
 };
 
 export default WebImage;
+
 
 
 
