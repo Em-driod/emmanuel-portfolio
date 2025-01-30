@@ -52,7 +52,7 @@ const WebImage = () => {
     projectRefs.current.forEach((project, index) => {
       gsap.fromTo(
         project,
-        { opacity: 0, scale: 0.8, y: 50 },
+        { opacity: 0, scale: 0.85, y: 60 },
         {
           opacity: 1,
           scale: 1,
@@ -73,13 +73,13 @@ const WebImage = () => {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-screen bg-gradient-to-r from-[#1a1a2e] via-[#16213e] to-[#0f3460] px-6 py-12"
+      className="relative min-h-screen bg-gradient-to-r from-[#1a1a2e] via-[#16213e] to-[#0f3460] px-4 sm:px-6 lg:px-12 py-12"
     >
-      <h2 className="text-5xl font-extrabold text-center text-white mb-12 tracking-wide">
+      <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-white mb-12 tracking-wide">
         🚀 Featured Projects
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
         {projects.map((project, index) => (
           <motion.a
             key={project.id}
@@ -87,24 +87,24 @@ const WebImage = () => {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800 group block"
-            whileHover={{ scale: 1.07, rotateY: 5 }}
+            className="relative rounded-xl overflow-hidden shadow-lg sm:shadow-2xl border border-gray-700 group block transition-all duration-300"
+            whileHover={{ scale: 1.07, rotateY: 3 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
             {/* Project Image */}
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-80 object-cover brightness-90 group-hover:brightness-110 transition duration-300"
+              className="w-full h-64 sm:h-80 object-cover brightness-90 group-hover:brightness-110 transition duration-300"
             />
 
             {/* Glassmorphism Overlay */}
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
-              <h3 className="text-2xl font-bold text-white tracking-wider">
+              <h3 className="text-lg sm:text-2xl font-bold text-white tracking-wider text-center">
                 {project.title}
               </h3>
               <motion.div
-                className="mt-4 px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300"
+                className="mt-4 px-5 sm:px-6 py-2 sm:py-3 text-sm sm:text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
               >
                 View Website 🚀
@@ -112,7 +112,7 @@ const WebImage = () => {
             </div>
 
             {/* Glowing Border Effect */}
-            <div className="absolute inset-0 border-4 border-transparent rounded-xl group-hover:border-blue-500 transition-all duration-500 shadow-[0_0_15px_5px_rgba(59,130,246,0.8)] opacity-0 group-hover:opacity-100"></div>
+            <div className="absolute inset-0 border-2 sm:border-4 border-transparent rounded-xl group-hover:border-blue-500 transition-all duration-500 shadow-[0_0_10px_3px_rgba(59,130,246,0.8)] opacity-0 group-hover:opacity-100"></div>
           </motion.a>
         ))}
       </div>
@@ -121,6 +121,7 @@ const WebImage = () => {
 };
 
 export default WebImage;
+
 
 
 

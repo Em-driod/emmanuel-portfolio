@@ -53,41 +53,41 @@ const Herosection = () => {
   }, []);
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden">
       {backgrounds.map((bg, index) => (
         <div
           key={index}
           ref={currentBackground === index ? bgRef : null}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-500 ${currentBackground === index ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-in-out ${currentBackground === index ? 'opacity-100' : 'opacity-0'}`}
           style={{ backgroundImage: `url('${bg.image}')` }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
           {/* Hero Content */}
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 space-y-6">
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6 sm:px-4 space-y-6">
             <h1
               ref={currentBackground === index ? titleRef : null}
-              className="text-5xl font-extrabold text-white"
+              className="text-3xl sm:text-5xl font-extrabold text-white leading-tight"
             >
               {bg.title}
             </h1>
             <p
               ref={currentBackground === index ? subtitleRef : null}
-              className="text-xl font-semibold text-white"
+              className="text-lg sm:text-xl font-semibold text-white max-w-md"
             >
               {bg.subtitle}
             </p>
 
             {/* Action Buttons */}
-            <div ref={currentBackground === index ? buttonRef : null} className="space-x-6">
+            <div ref={currentBackground === index ? buttonRef : null} className="w-full sm:w-auto space-y-4 sm:space-y-0 sm:space-x-6 flex flex-col sm:flex-row">
               <button
-                className="bg-blue-600 text-white py-3 px-6 rounded-full text-lg shadow-lg hover:bg-blue-700 transition"
+                className="w-full sm:w-auto bg-blue-600 text-white py-3 px-6 sm:py-3 sm:px-8 rounded-full text-lg shadow-lg hover:bg-blue-700 transition"
                 onClick={() => window.scrollTo(0, window.innerHeight)}
               >
                 View My Work
               </button>
               <button
-                className="border-2 border-white text-white py-3 px-6 rounded-full text-lg hover:bg-white hover:text-blue-700 transition"
+                className="w-full sm:w-auto border-2 border-white text-white py-3 px-6 sm:py-3 sm:px-8 rounded-full text-lg hover:bg-white hover:text-blue-700 transition"
                 onClick={() => window.location = '/contact'}
               >
                 Get In Touch
@@ -101,3 +101,4 @@ const Herosection = () => {
 };
 
 export default Herosection;
+
