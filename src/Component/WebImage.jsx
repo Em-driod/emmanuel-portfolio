@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
@@ -35,16 +39,51 @@ const projects = [
 ];
 
 const WebImage = () => {
+  const containerRef = useRef(null);
+  const projectRefs = useRef([]);
+
+  useEffect(() => {
+    gsap.fromTo(
+      containerRef.current,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1.5, ease: "power4.out" }
+    );
+
+    projectRefs.current.forEach((project, index) => {
+      gsap.fromTo(
+        project,
+        { opacity: 0, scale: 0.8, y: 50 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          delay: index * 0.2,
+          scrollTrigger: {
+            trigger: project,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
-    <div className="relative min-h-screen bg-gradient-to-r from-[#1a1a2e] via-[#16213e] to-[#0f3460] px-6 py-12">
+    <div
+      ref={containerRef}
+      className="relative min-h-screen bg-gradient-to-r from-[#1a1a2e] via-[#16213e] to-[#0f3460] px-6 py-12"
+    >
       <h2 className="text-5xl font-extrabold text-center text-white mb-12 tracking-wide">
         🚀 Featured Projects
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <motion.a
             key={project.id}
+            ref={(el) => (projectRefs.current[index] = el)}
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -82,5 +121,6 @@ const WebImage = () => {
 };
 
 export default WebImage;
+
 
 
