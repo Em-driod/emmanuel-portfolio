@@ -1,77 +1,112 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import gsap from "gsap";
 
 const About = () => {
+  const sections = useRef([]);
+  const indicator = useRef(null);
+
+  useEffect(() => {
+    gsap.utils.toArray(".section").forEach((section, index) => {
+      gsap.to(indicator.current, {
+        y: index * 40,
+        scrollTrigger: {
+          trigger: section,
+          start: "top center",
+          end: "bottom center",
+          scrub: true,
+        },
+      });
+    });
+  }, []);
+
   return (
-    <div className="bg-gray-100">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold">About UrbanTorque</h1>
-          <p className="mt-4 text-lg">
-            Discover our story, mission, and the people behind UrbanTorque.
-          </p>
+    <div className="relative min-h-screen bg-gray-900 text-white px-8 md:px-20 py-20">
+      {/* Side Punch Indicator */}
+      <div className="fixed left-4 top-1/2 transform -translate-y-1/2 hidden md:block">
+        <div className="relative flex flex-col space-y-6">
+          {["Introduction", "Skills", "Experience", "Vision"].map((item, index) => (
+            <div key={index} className="relative text-gray-500 text-sm transition duration-300">
+              {item}
+            </div>
+          ))}
+          <div
+            ref={indicator}
+            className="absolute left-0 w-2 h-6 bg-blue-400 rounded-full"
+          />
         </div>
       </div>
 
-      {/* Mission Statement */}
-      <div className="bg-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-800">Our Mission</h2>
-          <p className="mt-4 text-gray-600 leading-relaxed">
-            At UrbanTorque, we aim to revolutionize the car rental and sales industry by offering a seamless and customer-centric experience. Whether you’re looking to buy your dream car or rent one for your next adventure, we’re here to make it happen with ease and transparency.
+      {/* Main Content */}
+      <div className="max-w-4xl mx-auto space-y-24">
+        {/* Introduction */}
+        <motion.div
+          className="section"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          ref={(el) => (sections.current[0] = el)}
+        >
+          <h2 className="text-4xl font-bold text-blue-400">Who Am I?</h2>
+          <p className="mt-4 text-lg text-gray-300 leading-relaxed">
+            My name is Eseyin Emmanuel, a passionate and innovative WEB DEVELOPER with expertise in **JavaScript, ReactJS, Tailwind CSS, and Vite**. With a keen eye for detail and a strong grasp of modern web technologies, I specialize in **creating highly responsive, visually captivating, and performance-optimized web experiences**.
           </p>
-        </div>
-      </div>
+        </motion.div>
 
-      {/* Our Journey */}
-      <div className="bg-gray-50 py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-800">Our Journey</h2>
-          <p className="mt-4 text-center text-gray-600">
-            UrbanTorque was founded with a vision to simplify car sales and rentals. From our humble beginnings to becoming a trusted name in the industry, we’ve grown because of our commitment to excellence and innovation.
+        {/* Skills */}
+        <motion.div
+          className="section"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          ref={(el) => (sections.current[1] = el)}
+        >
+          <h2 className="text-4xl font-bold text-blue-400">Technical Skills</h2>
+          <p className="mt-4 text-lg text-gray-300 leading-relaxed">
+            I excel in **frontend development**, ensuring seamless user interactions and intuitive UI/UX designs. My skill set includes:
           </p>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-blue-700">2015</h3>
-              <p className="text-gray-600 mt-2">UrbanTorque was established, driven by a passion for cars and customer satisfaction.</p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-blue-700">2020</h3>
-              <p className="text-gray-600 mt-2">Expanded to multiple cities, offering both car sales and rental options.</p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-blue-700">2025</h3>
-              <p className="text-gray-600 mt-2">Continuing our journey to provide innovative solutions for car enthusiasts worldwide.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+          <ul className="mt-4 grid grid-cols-2 gap-4 text-gray-400 text-lg">
+            <li>⚡ JavaScript (ES6+)</li>
+            <li>⚡ ReactJS & Vite</li>
+            <li>⚡ Tailwind CSS & Framer Motion</li>
+            <li>⚡ GSAP for animations</li>
+            <li>⚡ Contentful CMS Integration</li>
+            <li>⚡ API Handling & State Management</li>
+          </ul>
+        </motion.div>
 
-      {/* Team Section */}
-      <div className="bg-white py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-800">Meet Our Team</h2>
-          <p className="mt-4 text-center text-gray-600">
-            Our team is dedicated to delivering exceptional service and ensuring your car needs are met with expertise and care.
+        {/* Experience */}
+        <motion.div
+          className="section"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          ref={(el) => (sections.current[2] = el)}
+        >
+          <h2 className="text-4xl font-bold text-blue-400">Experience & Projects</h2>
+          <p className="mt-4 text-lg text-gray-300 leading-relaxed">
+            Over the years, I have worked on multiple **high-impact projects**, delivering clean, efficient, and scalable solutions. Some of my **notable projects** include:
           </p>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-24 h-24 mx-auto bg-gray-300 rounded-full"></div>
-              <h3 className="text-xl font-bold text-gray-800 mt-4">John Doe</h3>
-              <p className="text-gray-600">CEO & Founder</p>
-            </div>
-            <div className="text-center">
-              <div className="w-24 h-24 mx-auto bg-gray-300 rounded-full"></div>
-              <h3 className="text-xl font-bold text-gray-800 mt-4">Jane Smith</h3>
-              <p className="text-gray-600">Head of Sales</p>
-            </div>
-            <div className="text-center">
-              <div className="w-24 h-24 mx-auto bg-gray-300 rounded-full"></div>
-              <h3 className="text-xl font-bold text-gray-800 mt-4">Mike Brown</h3>
-              <p className="text-gray-600">Marketing Manager</p>
-            </div>
-          </div>
-        </div>
+          <ul className="mt-4 space-y-3">
+            <li className="text-gray-400">✔ **UrbanTorque** – A car rental and sales website with a seamless user experience.</li>
+            <li className="text-gray-400">✔ **E-Commerce Sneaker Store** – A fully responsive sneaker sales platform with advanced UI animations.</li>
+            <li className="text-gray-400">✔ **Portfolio Website** – A dynamic portfolio that showcases my projects and capabilities.</li>
+          </ul>
+        </motion.div>
+
+        {/* Vision */}
+        <motion.div
+          className="section"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.9 }}
+          ref={(el) => (sections.current[3] = el)}
+        >
+          <h2 className="text-4xl font-bold text-blue-400">Vision & Goals</h2>
+          <p className="mt-4 text-lg text-gray-300 leading-relaxed">
+            My VISION is to become a globally recognized web development expert, pushing the boundaries of creativity and innovation. I aim to **build high-performing applications** that not only meet client needs but also redefine user experience standards.
+          </p>
+        </motion.div>
       </div>
     </div>
   );

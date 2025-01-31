@@ -54,7 +54,7 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}  
           transition={{ duration: 0.7, delay: 0.3 }}  
         >  
-          {["Home", "Projects", "Services", "Contact"].map((item, index) => {  
+          {["Home", "Projects", "About", "Contact"].map((item, index) => {  
             const linkPath = item === "Projects" ? "/Project" : `/${item.toLowerCase()}`;  
 
             return (  
