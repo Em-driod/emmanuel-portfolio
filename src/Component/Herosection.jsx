@@ -66,7 +66,7 @@ const HeroSection = () => {
         <h1 className="text-4xl sm:text-6xl font-extrabold text-white leading-tight">  
           {backgrounds[currentBackground].title}  
         </h1>  
-        <p className="text-lg sm:text-xl text-gray-300 mt-4">  
+        <p className="text-lg sm:text-xl text-gray-300 mt-3">  
           {backgrounds[currentBackground].subtitle}  
         </p>  
 
