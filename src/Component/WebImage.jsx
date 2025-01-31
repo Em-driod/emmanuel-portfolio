@@ -9,33 +9,39 @@ const projects = [
   {
     id: 1,
     title: "Luxury Car Rentals",
-    image: "/path-to-your-image1.jpg",
+    image: "/7.jpg",
     link: "https://emma-ride-xgiv.vercel.app/",
   },
   {
     id: 2,
-    title: "Sneaker Store",
-    image: "/path-to-your-image2.jpg",
+    title: "Modern Portfolio",
+    image: "6.jpg",
     link: "https://sneakers-store2.vercel.app/",
   },
   {
     id: 3,
     title: "Real Estate Hub",
-    image: "/path-to-your-image3.jpg",
+    image: "5.jpg",
     link: "https://yourwebsite3.com",
   },
   {
     id: 4,
-    title: "Modern Portfolio",
-    image: "/path-to-your-image4.jpg",
+    title: "Fashion website",
+    image: "9.jpg",
     link: "https://yourwebsite4.com",
   },
   {
     id: 5,
-    title: "E-commerce Dashboard",
-    image: "/path-to-your-image5.jpg",
+    title: "E-commerce website with Dashboard",
+    image: "8.jpg",
     link: "https://yourwebsite5.com",
   },
+  {
+    id: 6,
+    title: "Sneakers hub",
+    image: "10.png",
+    link:"https://sneakers-store2.vercel.app/",
+  }
 ];
 
 const WebImage = () => {
