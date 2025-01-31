@@ -8,11 +8,11 @@ const Homepage = () => {
   return (
     <div>
       <Herosection />
-      <Screen />
+     
       
       <WebImage />
      
-      
+      <Screen />
        
     </div>
   )
