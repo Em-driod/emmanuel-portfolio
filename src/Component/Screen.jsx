@@ -47,7 +47,7 @@ const Screen = () => {
             <img
               src={`/${img}`}
               alt={`Image ${index + 1}`}
-              className="w-full h-[500px] object-cover transition-all duration-500 transform-style-preserve-3d"
+              className="w-fulil h-[500px] object-cover transition-all duration-500 transform-style-preserve-3d"
             />
           </motion.div>
         ))}
