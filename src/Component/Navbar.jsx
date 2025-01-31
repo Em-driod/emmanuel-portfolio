@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (  
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-gray-900/50 shadow-lg">  
-      <nav className="flex items-center justify-between px-1 pr-28 py-4 max-w-screen-xl mx-auto">  
+      <nav className="flex items-center justify-between px-1 pr-12 py-4 max-w-screen-xl mx-auto">  
         
         {/* Logo */}  
         <motion.div  
@@ -54,18 +54,22 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}  
           transition={{ duration: 0.7, delay: 0.3 }}  
         >  
-          {["Home", "Projects", "Services", "Contact"].map((item, index) => (  
-            <motion.div key={index} className="relative">  
-              <Link  
-                to={`/${item.toLowerCase()}`} // Fixed template literal  
-                className={`nav-link relative z-10 ${  
-                  location.pathname === `/${item.toLowerCase()}` ? "text-blue-400" : "hover:text-blue-400"  
-                } transition duration-300`}  
-              >  
-                {item}  
-              </Link>  
-            </motion.div>  
-          ))}  
+          {["Home", "Projects", "Services", "Contact"].map((item, index) => {  
+            const linkPath = item === "Projects" ? "/Project" : `/${item.toLowerCase()}`;  
+
+            return (  
+              <motion.div key={index} className="relative">  
+                <Link  
+                  to={linkPath}  
+                  className={`nav-link relative z-10 ${  
+                    location.pathname === linkPath ? "text-blue-400" : "hover:text-blue-400"  
+                  } transition duration-300`}  
+                >  
+                  {item}  
+                </Link>  
+              </motion.div>  
+            );  
+          })}  
         </motion.div>  
 
         {/* Desktop Social Links */}  
@@ -80,7 +84,7 @@ const Navbar = () => {
               href={social.link}  
               target="_blank"  
               rel="noopener noreferrer"  
-              className={`${social.color} text-2xl hover:${social.color} transition duration-300`} // Fixed template literal  
+              className={`${social.color} text-2xl hover:${social.color} transition duration-300`}  
             >  
               {social.icon}  
             </motion.a>  
@@ -119,17 +123,21 @@ const Navbar = () => {
             </motion.button>  
 
             {/* Menu Links */}  
-            {["Home", "Projects", "Services", "Contact"].map((item, index) => (  
-              <motion.div key={index}>  
-                <Link  
-                  to={`/${item.toLowerCase()}`} // Fixed template literal  
-                  className="nav-link"  
-                  onClick={() => setMenuOpen(false)}  
-                >  
-                  {item}  
-                </Link>  
-              </motion.div>  
-            ))}  
+            {["Home", "Projects", "Services", "Contact"].map((item, index) => {  
+              const linkPath = item === "Projects" ? "/Project" : `/${item.toLowerCase()}`;  
+
+              return (  
+                <motion.div key={index}>  
+                  <Link  
+                    to={linkPath}  
+                    className="nav-link"  
+                    onClick={() => setMenuOpen(false)}  
+                  >  
+                    {item}  
+                  </Link>  
+                </motion.div>  
+              );  
+            })}  
 
             {/* Social Links (Mobile) */}  
             <div className="flex space-x-5 mt-8">  
@@ -143,7 +151,7 @@ const Navbar = () => {
                   href={social.link}  
                   target="_blank"  
                   rel="noopener noreferrer"  
-                  className={`${social.color} text-3xl hover:${social.color} transition duration-300`} // Fixed template literal  
+                  className={`${social.color} text-3xl hover:${social.color} transition duration-300`}  
                 >  
                   {social.icon}  
                 </motion.a>  
@@ -163,4 +171,4 @@ const Navbar = () => {
   );  
 };  
 
-export default Navbar;
+export default Navbar;  
