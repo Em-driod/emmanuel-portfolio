@@ -70,7 +70,7 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row mt-6 justify-center items-center w-full sm:w-auto space-y-4 sm:space-y-0 sm:space-x-6">  
           <button  
             className="w-full sm:w-auto bg-blue-600 text-white py-3 px-6 sm:py-3 sm:px-8 rounded-full text-lg shadow-lg hover:bg-blue-700 transition"  
-            onClick={() => navigate("/Showcase")}  
+            onClick={() => navigate("/Project")}  
           >  
             View My Work  
           </button>  
