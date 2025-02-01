@@ -6,6 +6,7 @@ import Homepage from './Pages/Homepage' ;
 
 import About from './Pages/About';
 import Contact from './Pages/Contact';
+import Showcase from './Component/Showcase';
 
 const App = () => {  
   return (  
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/About' element={<About />} />
            <Route path='/About' element={<About />} />
           <Route path='/Project' element={<Project />} />
+          <Route path='/Showcase' element={<Showcase />} />
         </Routes>  
           
       </div>  

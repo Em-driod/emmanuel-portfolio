@@ -6,7 +6,7 @@ const images = ["1.png", "4.png", "3.png"];
 const Screen = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white px-4 py-10">
-      <h2 className="text-4xl font-bold mb-8">Creative Image Entrance</h2>
+      <h2 className="text-4xl font-bold mb-8">Phone Screen of the website</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {images.map((img, index) => (
           <motion.div
