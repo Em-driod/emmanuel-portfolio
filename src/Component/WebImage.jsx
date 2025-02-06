@@ -88,7 +88,7 @@ const WebImage = () => {
       className="relative min-h-screen bg-gradient-to-r from-[#3b4f7e] via-[#2c3a58] to-[#1b2d45] px-4 sm:px-6 lg:px-12 py-12"
     >
       <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-white mb-12 tracking-wide">
-        🚀 Featured Projects
+        🚀 My Projects
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
