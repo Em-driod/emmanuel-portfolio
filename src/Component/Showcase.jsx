@@ -28,6 +28,20 @@ const projects = [
   },  
   {  
     title: "Real Estate",  
+    desc: "Create and post your market",  
+    link: "/real-estate",  
+    tech: "React, GraphQL, Apollo",  
+    image: "5.jpg", // Placeholder for project image  
+  },  
+  {
+    title: "Fashion Design",
+    desc: "Trending with class site",
+    link: "",
+    tech: "React,typescript..",
+    image: "9.jpg",
+  },
+  {  
+    title: "Real Estate",  
     desc: "Property listing and management.",  
     link: "/real-estate",  
     tech: "React, GraphQL, Apollo",  

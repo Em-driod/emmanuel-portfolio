@@ -63,15 +63,17 @@ const About = () => {
         >
           <h2 className="text-4xl font-bold text-blue-400">Technical Skills</h2>
           <p className="mt-4 text-lg text-gray-300 leading-relaxed">
-            I excel in **frontend development**, ensuring seamless user interactions and intuitive UI/UX designs. My skill set includes:
+            I excel in "Frontend Development**, ensuring seamless user interactions and intuitive UI/UX designs. My skill set includes:
           </p>
           <ul className="mt-4 grid grid-cols-2 gap-4 text-gray-400 text-lg">
             <li>⚡ JavaScript (ES6+)</li>
             <li>⚡ ReactJS & Vite</li>
+            <li>⚡ Typescript</li>
             <li>⚡ Tailwind CSS & Framer Motion</li>
             <li>⚡ GSAP for animations</li>
             <li>⚡ Contentful CMS Integration</li>
             <li>⚡ API Handling & State Management</li>
+            <li>⚡ Backend </li>
           </ul>
         </motion.div>
 
@@ -85,12 +87,14 @@ const About = () => {
         >
           <h2 className="text-4xl font-bold text-blue-400">Experience & Projects</h2>
           <p className="mt-4 text-lg text-gray-300 leading-relaxed">
-            Over the years, I have worked on multiple **high-impact projects**, delivering clean, efficient, and scalable solutions. Some of my **notable projects** include:
+            Over the years, I have worked on multiple "HIGH IMPACT PROJECTS", delivering clean, efficient, and scalable solutions. Some of my **notable projects** include:
           </p>
           <ul className="mt-4 space-y-3">
-            <li className="text-gray-400">✔ **UrbanTorque** – A car rental and sales website with a seamless user experience.</li>
+            <li className="text-gray-400">✔ **EmmaRide** – A car rental and sales website with a seamless user experience.</li>
             <li className="text-gray-400">✔ **E-Commerce Sneaker Store** – A fully responsive sneaker sales platform with advanced UI animations.</li>
             <li className="text-gray-400">✔ **Portfolio Website** – A dynamic portfolio that showcases my projects and capabilities.</li>
+            <li className="text-gray-400">✔ **Jomiloju Fashion** – A dynamic portfolio that showcases my projects and capabilities.</li>
+            <li className="text-gray-400">✔ **Eazy** – A dynamic portfolio that showcases my projects and capabilities.</li>
           </ul>
         </motion.div>
 

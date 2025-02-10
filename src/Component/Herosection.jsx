@@ -5,7 +5,7 @@ import gsap from "gsap";
 const sentences = [
   {
     title: "Hello, I'm Eseyin Emmanuel",
-    subtitle: "A Passionate Web Developer specializing in JavaScript, Vite, ReactJS, CSS, and Tailwind CSS.",
+    subtitle: "A Passionate Web Developer specializing in JavaScript, Vite, ReactJS,Typescript, CSS, and Tailwind CSS.",
   },
   {
     title: "Crafting Seamless Web Experiences",
