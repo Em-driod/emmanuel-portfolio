@@ -24,7 +24,7 @@ const projects = [
     id: 3,
     title: "Real Estate Hub",
     image: "/5.jpg",
-    link: "https://yourwebsite3.com",
+    link: "https://https://emma-real-estate-z9j5.vercel.app/",
     note: "An elegant real estate listing website with interactive UI.",
   },
   {
@@ -38,7 +38,7 @@ const projects = [
     id: 5,
     title: "E-commerce with Dashboard",
     image: "/8.jpg",
-    link: "https://yourwebsite5.com",
+    link: "https://eazystore.vercel.app/",
     note: "An online store with an integrated admin dashboard for management.",
   },
   {
