@@ -1,32 +1,41 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp, FaLinkedin, FaBars, FaTimes } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import gsap from "gsap";
+
+// REMOVED GSAP IMPORT
+// import gsap from "gsap";
+
+// REMOVED GSAP REGISTRATION
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-  const splashRef = useRef(null);
+  // REMOVED GSAP REF
+  // const splashRef = useRef(null);
 
-  // Water Splash Effect
-  useEffect(() => {
-    const links = document.querySelectorAll(".nav-link");
-    links.forEach((link) => {
-      link.addEventListener("mouseenter", (e) => {
-        const rect = e.target.getBoundingClientRect();
-        gsap.fromTo(
-          splashRef.current,
-          { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2, scale: 0, opacity: 1 },
-          { scale: 1.5, opacity: 0, duration: 0.6, ease: "power2.out" }
-        );
-      });
-    });
-  }, []);
+  const limeColor = "#a3e635"; // Define lime color for consistent use
+
+  // REMOVED Water Splash Effect (GSAP useEffect)
+  // useEffect(() => {
+  //   const links = document.querySelectorAll(".nav-link");
+  //   links.forEach((link) => {
+  //     link.addEventListener("mouseenter", (e) => {
+  //       const rect = e.target.getBoundingClientRect();
+  //       gsap.fromTo(
+  //         splashRef.current,
+  //         { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2, scale: 0, opacity: 1 },
+  //         { scale: 1.5, opacity: 0, duration: 0.6, ease: "power2.out" }
+  //       );
+  //     });
+  //   });
+  // }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-gray-900/50 shadow-lg">
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-neutral-950/50 shadow-lg"> {/* Changed background to neutral-950/50 */}
       <nav className="flex items-center justify-between px-4 md:px-12 py-4 max-w-screen-xl mx-auto">
         
         {/* Logo */}
@@ -36,8 +45,8 @@ const Navbar = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <Link to="/" className="hover:text-blue-500 transition duration-300">
-            <motion.span className="text-blue-400" whileHover={{ scale: 1.1, rotate: -5 }}>
+          <Link to="/" className="hover:text-lime-500 transition duration-300"> {/* Changed hover color to lime */}
+            <motion.span style={{ color: limeColor }} whileHover={{ scale: 1.1, rotate: -5 }}> {/* Applied lime color */}
               Eseyin
             </motion.span>{" "}
             Emmanuel
@@ -58,8 +67,8 @@ const Navbar = () => {
               <motion.div key={index} className="relative">
                 <Link
                   to={linkPath}
-                  className={`nav-link relative z-10 ${
-                    location.pathname === linkPath ? "text-blue-400" : "hover:text-blue-400"
+                  className={`relative z-10 ${ // Removed nav-link class as it was tied to GSAP splash
+                    location.pathname === linkPath ? "text-lime-400" : "hover:text-lime-400" // Changed active/hover colors to lime
                   } transition duration-300`}
                 >
                   {item}
@@ -72,16 +81,17 @@ const Navbar = () => {
         {/* Desktop Social Links */}
         <div className="hidden md:flex space-x-5">
           {[
-            { icon: <FaWhatsapp />, color: "text-green-400", link: "https://wa.me/2347016969298" },
-            { icon: <FaXTwitter />, color: "text-blue-400", link: "https://x.com/sheenleen2" },
-            { icon: <FaLinkedin />, color: "text-blue-600", link: "https://linkedin.com/in/your-linkedin-profile" }
+            { icon: <FaWhatsapp />, defaultColor: "text-green-400", hoverColor: "hover:text-green-500", link: "https://wa.me/2347016969298" },
+            { icon: <FaXTwitter />, defaultColor: "text-lime-400", hoverColor: "hover:text-lime-500", link: "https://x.com/sheenleen2" }, // Changed colors to lime
+            { icon: <FaLinkedin />, defaultColor: "text-lime-400", hoverColor: "hover:text-lime-500", link: "https://linkedin.com/in/your-linkedin-profile" } // Changed colors to lime
           ].map((social, index) => (
             <motion.a
               key={index}
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${social.color} text-2xl hover:${social.color} transition duration-300`}
+              className={`${social.defaultColor} text-2xl ${social.hoverColor} transition duration-300`}
+              whileHover={{ scale: 1.1 }} // Added simple hover animation
             >
               {social.icon}
             </motion.a>
@@ -125,7 +135,13 @@ const Navbar = () => {
 
               return (
                 <motion.div key={index}>
-                  <Link to={linkPath} className="nav-link" onClick={() => setMenuOpen(false)}>
+                  <Link 
+                    to={linkPath} 
+                    className={`relative z-10 ${ // Removed nav-link class
+                      location.pathname === linkPath ? "text-lime-400" : "hover:text-lime-400" // Changed active/hover colors to lime
+                    } transition duration-300`}
+                    onClick={() => setMenuOpen(false)}
+                  >
                     {item}
                   </Link>
                 </motion.div>
@@ -135,16 +151,17 @@ const Navbar = () => {
             {/* Social Links (Mobile) */}
             <div className="flex space-x-5 mt-8">
               {[
-                { icon: <FaWhatsapp />, color: "text-green-400", link: "https://wa.me/2347016969298" },
-                { icon: <FaXTwitter />, color: "text-blue-400", link: "https://x.com/sheenleen2" },
-                { icon: <FaLinkedin />, color: "text-blue-600", link: "https://linkedin.com/in/your-linkedin-profile" }
+                { icon: <FaWhatsapp />, defaultColor: "text-green-400", hoverColor: "hover:text-green-500", link: "https://wa.me/2347016969298" },
+                { icon: <FaXTwitter />, defaultColor: "text-lime-400", hoverColor: "hover:text-lime-500", link: "https://x.com/sheenleen2" }, // Changed colors to lime
+                { icon: <FaLinkedin />, defaultColor: "text-lime-400", hoverColor: "hover:text-lime-500", link: "https://linkedin.com/in/your-linkedin-profile" } // Changed colors to lime
               ].map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${social.color} text-3xl hover:${social.color} transition duration-300`}
+                  className={`${social.defaultColor} text-3xl ${social.hoverColor} transition duration-300`}
+                  whileHover={{ scale: 1.1 }} // Added simple hover animation
                 >
                   {social.icon}
                 </motion.a>
@@ -154,8 +171,8 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      {/* Water Splash Effect (GSAP) */}
-      <div ref={splashRef} className="fixed w-16 h-16 bg-blue-400 rounded-full opacity-0 pointer-events-none" style={{ filter: "blur(8px)" }} />
+      {/* REMOVED Water Splash Effect Div */}
+      {/* <div ref={splashRef} className="fixed w-16 h-16 bg-blue-400 rounded-full opacity-0 pointer-events-none" style={{ filter: "blur(8px)" }} /> */}
     </header>
   );
 };
