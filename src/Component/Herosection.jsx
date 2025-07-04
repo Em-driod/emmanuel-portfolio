@@ -95,7 +95,7 @@ const HeroSection = () => {
               onClick={() => navigate("/projects")}
               className="px-8 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-105 shadow-lg"
             >
-              <Link to="/Project">
+              <Link to="/webImage">
                 View Projects
               </Link>
             </button>

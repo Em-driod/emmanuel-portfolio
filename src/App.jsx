@@ -8,6 +8,7 @@ import Homepage from './Pages/Homepage';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Showcase from './Component/Showcase';
+import webImage from './Component/WebImage'; // Import WebImage if needed
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true); // State to manage loading status
@@ -55,6 +56,7 @@ const App = () => {
           <Route path='/About' element={<About />} /> 
           <Route path='/Project' element={<Project />} />
           <Route path='/Showcase' element={<Showcase />} />
+          <Route path='/WebImage' element={<webImage />} />
         </Routes>
       </div>
     </Router>
