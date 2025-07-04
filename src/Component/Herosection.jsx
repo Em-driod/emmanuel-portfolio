@@ -95,12 +95,15 @@ const HeroSection = () => {
               onClick={() => navigate("/projects")}
               className="px-8 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-105 shadow-lg"
             >
-              View Projects
+              <Link to="/Project">
+                View Projects
+              </Link>
             </button>
             <button
               onClick={() => navigate("/contact")}
               className="px-8 py-3 border-2 border-white font-medium rounded-full hover:bg-white hover:text-black transition-all duration-300 hover:scale-105"
             >
+
               Contact Me
             </button>
           </motion.div>
